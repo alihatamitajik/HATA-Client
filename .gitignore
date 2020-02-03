@@ -1,0 +1,7 @@
+
+obj/Release/main.o
+obj/Debug/main.o
+HATAM.layout
+HATAM.depend
+bin/Release/HATAM.exe
+bin/Debug/HATAM.exe
