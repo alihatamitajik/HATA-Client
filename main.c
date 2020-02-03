@@ -10,14 +10,14 @@
 #include <string.h>
 #include <stdbool.h>
 #include "Client.c"
-#include "cJSON.h"
-#include "cJSON.c"
+#include "HATA_JSON.h"
+#include "HATA_JSON.c"
 
 #define PORT 12345
 #define SA struct sockaddr
 
 //Global Variables
-
+int theme = 1;
 int client_socket;
 struct sockaddr_in servaddr;
 
@@ -27,7 +27,7 @@ int main()
     WORD wVersionRequested;
     WSADATA wsaData;
     int err;
-    int flag_account,flag_menu;
+    int flag_account;
 //Making Socket Operation-----------------------------------------------------------------------
 	// Use the MAKEWORD(lowbyte, highbyte) macro declared in Windef.h----------------
     wVersionRequested = MAKEWORD(2, 2);
@@ -55,8 +55,10 @@ int main()
 	servaddr.sin_addr.s_addr = inet_addr("127.0.0.1");
 	servaddr.sin_port = htons(PORT);
 //---------------------------------------------------------------------------------------------
-    printf("HATA Messenger | Version 1.1.3 ");
-    etcprint();
+    /* Theme Picker */
+    loadtheme();
+    //printf("HATA Messenger | Version 2.0.7 ");
+    LogoPrint();
     location :
     flag_account = account();
     if(flag_account==1)
@@ -64,8 +66,9 @@ int main()
     goto location;}
     else if(flag_account==2){
             system("cls");
-
-        printf("Program Exited Normally\nBey-Bey");
+        CPATT(NORMAL);
+        printf("Program Exited Normally\033[1;32m\nBey-Bey");
+        RESET;
         Sleep(1200);
         system("cls");
         return 0;

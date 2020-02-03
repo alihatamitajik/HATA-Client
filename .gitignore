@@ -5,3 +5,5 @@ HATAM.layout
 HATAM.depend
 bin/Release/HATAM.exe
 bin/Debug/HATAM.exe
+bin/Release/README.txt
+bin/Release/libgcc_s_dw2-1.dll
